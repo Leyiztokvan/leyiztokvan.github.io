@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+    /* change body style -*/
+    body {
+        background-color: black;
+        color: white;
+    }
+    /* customise button styling */ 
+    button {
+        margin-top: 10px;
+    }
+
+    /* specify some properties for magic-text */
+    #magic-text {
+        font-style: bold; 
+        font-size: xx-large; 
+        color:orangered; 
+        margin-bottom: 10px; 
+        animation: blinker 1s linear infinite; /* make text blink */
+    }
+    /* specify the animation code, here we specify the transation, 
+    meaning, which style is shown at the start (from) 
+    and which style is shown at the end (to)*/
+    @keyframes blinker {
+        from {opacity: 0;}
+        to {opacity: 100;}
+    }
+</style>
+</head>
+
+<body>
+    <h2>JavaScript can change HTML attribute values.</h2>
+    <p>Here JavaScript chagnes the value of the src (source) attribte of an image.</p>
+    <h3>The Light Bulb</h3>
+    <div>
+        <!-- add frame around lightbulb to show where it will appear -->
+        <div id="frame">
+            <img id="light-bulb" style="height: 512px; width: 512px; border-color: transparent;">
+        </div>
+        <div>
+            <p id="magic-text" style="display: none;">There is no magic just visual tricks and JavaScript!</p>
+        </div>
+        <!-- add buttons to change img src when they are clicked -->
+        <button id="turn-on" onclick='document.getElementById("light-bulb").src="../../images/lightbulb/lightbulb_on.png"; 
+        document.getElementById("light-bulb").style.display="inline"; 
+        document.getElementById("magic-text").style.display="none";'>
+            Turn Light On
+        </button>
+        <button id="turn-off" onclick='document.getElementById("light-bulb").src="../../images/lightbulb/lightbulb_off.png"; 
+        document.getElementById("light-bulb").style.display="inline"; 
+        document.getElementById("magic-text").style.display="none";'>
+            Turn Light Off
+        </button>
+        <button id="turn-off" onclick='document.getElementById("light-bulb").style.display="none"; document.getElementById("magic-text").style.display="inline";'>
+            Magically Hide Lightbulb!
+        </button>
+    </div>
+</body>
+</html>

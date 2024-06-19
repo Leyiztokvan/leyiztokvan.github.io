@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Interactive HTML Code Cells</title>
+    <link href="../../../styles/syntax.css" rel="stylesheet">
+    <link href="interactive.css" rel="stylesheet">
+
+    <script src="syntax-interactive.js" defer></script>
+    <script src="interactive.js" defer></script>
+</head>
+<body>
+    <h1>Interactive Code Cells</h1>
+    <p>Change HTML code and execute to see changes</p>
+    <div class="container">
+        <div class="code-cell">
+            <div class="lang" id="lang">HTML</div>
+            <textarea id="html-code">
+<!-- This is HTML Code -->
+<!DOCTYPE html>
+<html lang="en" charset="utf-8">
+<head>
+    <link href="../../../styles/syntax.css." rel="stylesheet">
+    <script src="../../../syntax.js." defer></script>
+    <title>JavaScript Syntax</title>
+</head>
+<body>
+    <h2>JavaScript Syntax</h2>
+    <div id="column">
+        <table>
+            <tr class="topic">
+                <th id="topic_1">topic_1</th>
+                <th id="topic_2">topic_2</th>
+            </tr>
+            <tr>
+                <td id="content_1">content_1</td>
+                <td id="content_2">content_2</td>
+            </tr>
+            <tr class="topic">
+                <th id="topic_3">topic_3</th>
+                <th id="topic_4">topic_4</th>
+            </tr>
+            <tr>
+                <td id="content_3">content_3</td>
+                <td id="content_4">content_4</td>
+            </tr>
+        </table>
+    </div>
+</body>
+</html>
+            </textarea>
+            <div class="grid-buttons">
+                <button class="execute-btn" onclick="executeCode('html-code')">Execute HTML Code</button>
+                <button class="copy-btn" onclick='copy_text("html-code"); change_btn_text(this);'>Copy</button>
+            </div>
+        </div>
+        <div class="code-cell">
+            <div class="lang" id="lang">CSS</div>
+            <textarea id="css-code">
+/* CSS Code */
+:root {
+    --bc-color: rgba(255, 255, 255, 0.6);
+    --t-border-color: rgba(110, 98, 98, 0.8);
+    --t-background-color: rgba(0, 0, 0, 0.8);
+    --t-font: 12px; 
+    --t-border: 1px solid var(--t-border-color);
+}
+
+body {
+    height: 100vh;
+    background-color: var(--bc-color);
+    justify-content: center;
+    align-items: center;
+}
+
+table {
+    width: 100%;
+    height: 100%;
+    border: var(--t-border);
+    font: var(--t-font);
+}
+
+tr.topic {
+    background-color: lightgray;
+}
+
+td {
+    width: 50%;
+    height: fit-content;
+    min-height: 40vh;
+    box-sizing: border-box;
+    border: var(--t-border);
+    text-align: center;
+    vertical-align: middle;
+    margin: 0;
+    overflow: hidden;
+}
+
+h2 {
+    text-align: center;
+}
+
+p {
+    font-size: small;
+}
+
+textarea {
+    width: 100%;
+    min-height: 120px;
+    font-size: xx-small;
+    background-color: black;
+    color: white;
+}
+
+.container {
+    display: flex;
+    margin: 5px;
+}
+
+.code-cell {
+    margin: 5px;
+    padding: 5px;
+    border: 1px solid gray;
+    width: 100%;
+}
+
+table.keywords {
+    height: min-content;
+    width: 20px;
+    margin-bottom: 20px;
+    font-size: small;
+}
+
+table.keywords td {
+    height: min-content;
+    width: min-content;
+    text-align: left;
+    overflow: hidden;
+}
+            </textarea>
+        </div>
+        <div class="code-cell">
+            <div class="lang" id="lang">JS</div>
+            <textarea id="js-code">
+// This is JS Code
+
+/* Functions for syntax.html */
+
+var topics = ["Output", "Statements", "Variables", "TOPIC_4"];
+var contents = [
+    "syntax-subviews/syntax-output.html",
+    "syntax-subviews/syntax-statements.html",
+    "syntax-subviews/syntax-variables.html",
+    ""
+];
+
+document.addEventListener("DOMContentLoaded", function() {
+    console.log("DOM fully loaded and parsed");
+    fill_topics(topics.length);
+    fill_topic_content(contents.length);
+    add_navigation_listeners();
+});
+
+function fill_topics(nb_topics) {
+    if (nb_topics === topics.length) {
+        for (let i = 0; i < topics.length; i++) {
+            const topic_id = 'topic_' + (i + 1);
+            const topic_title = topics[i];
+            console.log("Replacing text for:", topic_id, "with:", topic_title);
+            replace_text(topic_id, topic_title);
+        }
+    }
+}
+
+function fill_topic_content(nb_contents) {
+    if (nb_contents === contents.length) {
+        for (let i = 0; i < contents.length; i++) {
+            const content_id = 'content_' + (i + 1);
+            const content_url = contents[i];
+            if (content_url) {
+                console.log("Creating object for:", content_id, "with URL:", content_url);
+                create_object(content_id, content_url);
+            }
+        }
+    }
+}
+
+function replace_text(id, text) {
+    var element = document.getElementById(id);
+    if (element) {
+        element.innerText = text;
+        console.log("Replaced text for:", id, "with:", text);
+    } else {
+        console.error("Element not found:", id);
+    }
+}
+
+function create_object(id, url) {
+    var element = document.getElementById(id);
+    if (element) {
+        element.innerHTML = "";
+
+        const objectTag = document.createElement('object');
+        objectTag.type = 'text/html';
+        objectTag.data = url;
+        objectTag.width = '100%';
+        objectTag.height = '100%';
+
+        element.appendChild(objectTag);
+        console.log("Created object for:", id, "with URL:", url);
+    } else {
+        console.error("Element not found:", id);
+    }
+}
+
+function navigate_to(path) {
+    console.log("Navigating to:", path);
+    window.location.href = path;
+}
+
+function add_navigation_listeners() {
+    for (let i = 0; i < topics.length; i++) {
+        const topic_id = 'topic_' + (i + 1);
+        const content_url = contents[i];
+        if (content_url) {
+            var element = document.getElementById(topic_id);
+            if (element) {
+                element.addEventListener('click', function() {
+                    navigate_to(content_url);
+                });
+                console.log("Added listener to:", topic_id);
+            } else {
+                console.error("Element not found for listener:", topic_id);
+            }
+        }
+    }
+}
+            </textarea>
+        </div>
+    </div>
+    <div class="view-section" id="view-section">
+        <!-- Resulting HTML will be displayed here -->
+    </div>
+</body>
+</html>

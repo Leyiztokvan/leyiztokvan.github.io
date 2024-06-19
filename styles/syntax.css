@@ -1,0 +1,107 @@
+
+@charset "UTF-8";
+/* letter = meaning
+t = table
+c = color
+f = font 
+*/
+:root {
+
+    --bc-color: rgba(255, 255, 255, 0.6);
+
+    /* table */
+    --t-border-color: rgba(110, 98, 98, 0.8);
+    --t-background-color: rgba(0, 0, 0, 0.8);
+
+    --t-font: 12px; 
+
+    --t-border: 1px solid var(--t-border-color);
+}
+
+body {
+    height: 100vh;
+
+    background-color: var(--bc-color);
+
+    
+    justify-content: center;
+    align-items: center;
+}
+
+
+table{
+    width: 100%;
+    height: 100%;
+
+    border: var(--t-border);
+
+    font: var(--t-font);
+}
+
+tr.topic {
+    background-color:lightgray;
+}
+
+td {
+    width: 50%;
+    height: fit-content;
+    min-height: 40vh; /* 40% of the viewport height for each cell */
+    box-sizing: border-box; /* Include padding and border in the element's total width and height */
+    
+
+    border: var(--t-border);
+    text-align: center;
+    vertical-align: middle;
+    border: var(--t-border);
+    
+    margin: 0;
+
+    overflow: hidden; /* Prevent overflow content from stretching the height */
+}
+
+
+
+/* Style for syntax.html subviews */
+
+h2 {
+    text-align: center;
+}
+
+
+
+p {
+    font-size: small;
+}
+
+textarea {
+        width: 100%;
+        min-height: 120px;
+        font-size: xx-small;
+        background-color: black;
+        color: white;
+    }
+.container {
+    display: flex;
+    margin: 5px;
+}
+
+.code-cell {
+    margin: 5px;
+    padding: 5px;
+    border: 1px solid gray;
+    width: 100%;   
+}
+
+table.keywords {
+    height: min-content;
+    width: 20px;
+    margin-bottom: 20px;
+    font-size: small;
+}
+
+table.keywords td {
+    height: min-content;
+    width: min-content;
+    text-align: left;
+    overflow: hidden; /* Prevent overflow content from stretching the height */
+}

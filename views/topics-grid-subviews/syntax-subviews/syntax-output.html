@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en" charset="utf-8">
+<head>
+    <link rel="stylesheet" href="../../../styles/syntax.css">
+</head>
+
+
+<body>
+    <h4>JavaScript Display Possibilities</h4>
+    <p>JavaScript can "display" data in different ways:<br>
+        - Writing into an HTML element, using innerHTML.<br>
+        - Writing into the HTML output using document.write().<br>
+        - Writing into an alert box, using window.alert().<br>
+        - Writing into the browser console, using console.log().
+    </p>
+
+    <h4>Using innerHTML</h4>
+    <p>To access an HTML element, use <italic>document.getElementById(id) method.</italic></p>
+    <p style="font-weight: bold;">Example</bold></p>
+    <!-- Code Cell -->
+    <div class="container">
+        <div class="code-cell">
+            <!-- The button used to copy the text -->
+            <button onclick='copy_text("cell_1"); change_btn_text(this);'>Copy</button>
+            <textarea>
+    <!DOCTYPE html>
+    <html>
+    <body>
+
+        <h1>My First Web Page</h1>
+        <p>My First Paragraph</p>
+
+        <p id="demo"></p>
+
+        <script>
+            document.getElementById("demo").innerHTML = 5 + 6;
+        </script>
+
+    </body>
+    </html>
+            </textarea>
+        </div>
+    </div>
+
+    <h4>Using document.write()</h4>
+    <p>For testing purposes, it is convenient to use <italic>document.write()</italic></p>
+    <p>The document.write() method should only be used for testing.</p>
+    <p>NOTE: Using document.write() after an HTML document is loaded, will delete all existing HTML</p>
+    <p style="font-weight: bold;">Example</bold></p>
+    <!-- Code Cell -->
+    <div class="container">
+        <div class="code-cell">
+            <!-- The button used to copy the text -->
+            <button onclick='copy_text("cell_1"); change_btn_text(this);'>Copy</button>
+            <textarea  id="cell_1">
+    <!DOCTYPE html>
+    <html>
+    <body>
+    
+        <h1>My First Web Page</h1>
+        <p>My first paragraph.</p>
+    
+    <script>
+        document.write(5 + 6);
+    </script>
+    
+    </body>
+    </html>
+            </textarea>
+        </div>
+    </div>
+
+    <h4>Using window.alert() / alert()</h4>
+    <p>Use an alert box to display data:</p>
+    <p style="font-weight: bold;">Example</bold></p>
+    <!-- Code Cell -->
+    <div class="container">
+        <div class="code-cell">
+            <!-- The button used to copy the text -->
+            <button onclick='copy_text("cell_2"); change_btn_text(this);'>Copy</button>
+            <textarea id="cell_2">
+    <!DOCTYPE html>
+    <html>
+    <body>
+
+        <h1>My First Web Page</h1>
+        <p>My first paragraph.</p>
+
+    <script>
+        alert(5 + 6);
+    </script>
+
+    </body>
+    </html>
+            </textarea>
+        </div>
+    </div>
+
+    
+    
+    <h4>Using console.log()</h4>
+    <p>For debugging purposes, use <italic>console.log()</italic></p>
+    <p style="font-weight: bold;">Example</bold></p>
+    <!-- Code Cell -->
+    <div class="container">
+        <div class="code-cell">
+            <!-- The button used to copy the text -->
+            <button onclick='copy_text("cell_3"); change_btn_text(this);'>Copy</button>
+            <textarea id="cell_3">
+    <!DOCTYPE html>
+    <html>
+    <body>
+
+        <h1>My First Web Page</h1>
+        <p>My first paragraph.</p>
+
+    <script>
+        console.log(5 + 6);
+    </script>
+
+    </body>
+    </html>
+            </textarea>
+        </div>
+    </div>
+
+    <h4>Using JavaScript Print</h4>
+    <p>For debugging purposes, use <italic>console.log()</italic></p>
+    <p>
+        NOTE: JavaScript does not have any print object or print methods.<br>
+        You cannot access output devices from JavaScript.
+    </p>
+    <p>The only use/exception <italic>window.print()</italic> method in the browser is to print the content of the current window.</p>
+    <p style="font-weight: bold;">Example</bold></p>
+    <!-- Code Cell -->
+    <div class="container">
+        <div class="code-cell">
+            <!-- The button used to copy the text -->
+            <button onclick='copy_text("cell_4"); change_btn_text(this);'>Copy</button>
+            <textarea id="cell_4">
+    <!DOCTYPE html>
+    <html>
+    <body>
+        <button onclick="window.print()">Print this page</button>
+    </body>
+    </html>
+            </textarea>
+        </div>
+    </div>
+
+
+    <script src="../../../js/syntax_subviews.js"></script>
+</body>
+</html>

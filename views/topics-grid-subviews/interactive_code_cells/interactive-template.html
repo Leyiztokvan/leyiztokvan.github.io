@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Interactive HTML Code Cells</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            background-color: #9c9c9c;
+        }
+        .container {
+            display: flex;
+            margin: 5px;
+            border-radius: 5px;
+        }
+        .code-cell {
+            margin: 10px;
+            padding: 5px;
+            background-color: black;
+            border: 1px solid #ccc;
+            width: 400px;
+            height: max-content;
+            border-radius: 5px;
+        }
+        textarea {
+            background-color: rgb(41, 41, 41);
+            color: white;
+            width: 98%;
+            height: 200px;
+            padding: 2px;
+        }
+        .view-section {
+            display: flexbox;
+            width: 96%;
+            margin: 10px;
+            padding: 20px;
+        
+            background-color: #f0f0f0d0;
+            border: 1px solid #000000;
+            max-height: 800px;
+            min-height: 400px;
+            
+        }
+
+        .grid-buttons {
+            height: min-content;
+            width: min-content;
+            align-self: last baseline;
+            display: grid;
+            grid-template-columns:max-content min-content;
+
+            column-gap: 5px;
+        }
+       
+        .lang, .execute-btn, .copy-btn {
+            width: max-content;
+            text-decoration: var(--body-font-color);
+            border-radius: 5px;
+            background-color: rgba(255, 208, 0, 0.9);;
+            border: 1px dashed black;
+            padding: 2px;
+            margin: 0px 2px 2px 0px;
+        }
+
+        h1 {
+            margin: 5px;
+        }
+
+
+    </style>
+</head>
+<body>
+    <h1>Interactive Code Cells</h1>
+    <p> Change HTML code and execute to see changes</p>
+    <div class="container">
+        <div class="code-cell">
+            <div class="lang" id="lang">HTML</div>
+            <textarea id="html-code">
+<!-- This is HTML Code -->
+            </textarea>
+            <div class="grid-buttons">
+                <button class="execute-btn" onclick="executeCode('html-code')">Execute HTML Code</button>
+                <button class="copy-btn" onclick='copy_text("html-code"); change_btn_text(this);'>Copy</button>
+            </div>
+        </div>
+        <div class="code-cell">
+            <div class="lang" id="lang">CSS</div>
+            <textarea id="css-code">
+/* This is CSS Code */
+            </textarea>
+            <!-- <button onclick="executeCode('css-code')">Execute Code 2</button> -->
+        </div>
+        <div class="code-cell">
+            <div class="lang" id="lang">JS</div>
+            <textarea id="js-code">
+// This is JS Code 
+            </textarea>
+            <!--  <button onclick="executeCode('js-code')">Execute JS Code</button> -->
+        </div>
+    </div>
+    <div class="view-section" id="view-section">
+        <!-- Resulting HTML will be displayed here -->
+    </div>
+
+    <script>
+        function executeCode(codeId) {
+            var code = document.getElementById(codeId).value;
+            document.getElementById('view-section').innerHTML = code;
+        }
+
+        /* Functions for subviews of syntax.html */
+        function copy_text(id){
+            // Get the text field
+            var copyText = document.getElementById(id);
+
+            // Copy the text inside the text field
+            navigator.clipboard.writeText(copyText.value);
+        }
+
+        function change_btn_text(button) {
+            // Store the original text of the button
+            var originalText = button.innerText;
+            
+            // Change the button text to "Copied"
+            button.innerHTML = "Copied";
+            
+            // Set a timeout to change the text back to the original after 2 seconds (2000 milliseconds)
+            setTimeout(function() {
+                button.innerHTML = originalText;
+            }, 1200);
+        }
+    </script>
+</body>
+</html>

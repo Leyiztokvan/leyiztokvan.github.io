@@ -1,0 +1,81 @@
+@charset "UTF-8";
+:root {
+  --h1-font-size: calc(1.9rem);
+  --h-font-color: rgba(255,255,255,1);
+
+  /* body */
+  --body-background-color: rgb(4, 3, 3);
+
+  --body-font-family: "font-sans-serif";
+  --body-font-size: 1rem;
+  --body-font-weight: 100;
+  --body-font-color: rgba(255,255,255,1);
+
+  --bg-color-grid: rgb(121, 115, 115);
+  --grid-border-color: rgba(255, 208, 0, 0.9);
+  --grid-btn-color: rgba(255, 208, 0, 0.9);
+}
+
+body {
+  background-color: var(--body-background-color);
+  font-family: var(--body-font-family);
+  font-size: var(--body-font-size);
+  font-weight: var(--body-font-weight);
+}
+
+.grid-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr; /* two columns of equal width */
+  gap: 50px; /* space between grid items */
+  margin: 20px;
+  height: 1400px;
+  width: auto;
+}
+
+.grid-item {
+  display: flex;
+  flex-direction: column; /* align content vertically */
+  justify-content: center; /* center the items vertically */
+  align-items: center; /* center the items horizontally */
+  background-color: var(--bg-color-grid);
+  text-align: center;
+  border-left: var(--grid-border-color) solid;
+  border-radius: 10px;
+  padding: 20px; /* add padding to ensure content is not touching edges */
+}
+
+.grid-content {
+  width: 100%;  /* ensure the content takes up full width */
+  height: 100%; /* ensure the content takes up full height */
+  display: flex;
+  justify-content: center; /* center content horizontally */
+  align-items: center; /* center content vertically */
+  border-radius: 10px;
+}
+
+.grid-topic, .grid-code {
+  align-self: flex-end; /* align the topic to the bottom of the grid-item */
+  font-family: var(--body-font-family);
+  font-size: var(--body-font-size);
+  text-decoration: var(--body-font-color);
+  border-radius: 5px;
+  border: 1px dashed var(--grid-btn-color);
+  padding: 5px;
+  margin: 10px 2px 2px 0px;
+}
+
+.grid-buttons {
+  height: 40px;
+  align-self: last baseline;
+  display: grid;
+  grid-template-columns: auto auto;
+
+  column-gap: 20px;
+}
+
+h1 {
+  font-size: var(--h1-font-size);
+  color: var(--h-font-color);
+  margin: 25px 5px 0px 25px;
+  text-align: center;
+}

@@ -1,0 +1,10 @@
+body {
+    background-color: black;
+    color: white;
+}
+
+button {
+    border: 1 dashed black;
+    border-radius: 5px;
+}
+
